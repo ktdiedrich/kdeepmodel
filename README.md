@@ -1,6 +1,6 @@
 # Kdeepmodel
 
-Deep learning model traing and inference 
+Deep learning model training and inference 
 
 ## Author 
 
