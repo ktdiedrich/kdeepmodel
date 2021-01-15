@@ -1,0 +1,1 @@
+{"input_dir": "/home/ktdiedrich/data/Coronahack-Chest-XRay-Dataset", "model_path": "/home/ktdiedrich/output/lung-xray/models/all_lung_2020.05.25/all_weights_2020.05.25.ts.zip", "output_dir": ".", "height": 520, "width": 520, "num_classes": 2, "threshold": -1.0}

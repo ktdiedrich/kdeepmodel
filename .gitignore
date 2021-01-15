@@ -130,4 +130,5 @@ dmypy.json
 
 # model files since they can be large 
 *.pth
+.vscode
 
