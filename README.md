@@ -1,5 +1,7 @@
 # Kdeepmodel
 
+[See wiki](https://github.com/ktdiedrich/kdeepmodel/wiki)
+
 Deep learning model training and inference 
 
 ## Author 
