@@ -32,6 +32,8 @@ from torch.utils.data import Subset
 import pandas as pd
 from kdeepmodel.plot_util import plot_batch, plot_loss
 import re
+from scipy.spatial.distance import directed_hausdorff
+
 
 np.random.seed(0)
 num_classes = 2
@@ -312,21 +314,14 @@ def main():
                           num_workers=params['num_workers'])
     val_dl = DataLoader(val_ds, batch_size=params['batch_size'], shuffle=False, collate_fn=collate_fn,
                         num_workers=params['num_workers'])
-
     model = deeplabv3_resnet50(pretrained=False, num_classes=params['num_classes'])
-
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model = model.to(device)
-
     # ## Define Loss Function
-
     criterion = nn.CrossEntropyLoss(reduction="sum")
-
     # ## Optimizer
     opt = optim.Adam(model.parameters(), lr=params['learning_rate'])
-
     lr_scheduler = ReduceLROnPlateau(opt, mode='min', factor=0.5, patience=params['patience'], verbose=1)
-
     current_lr = get_lr(opt)
     print('current lr={}'.format(current_lr))
 
